@@ -1,11 +1,12 @@
 import React from 'react'
 import {BrowserRouter as Router , Route, Routes} from "react-router-dom" ////importing reactrouter dom for routing
-import PersistentDrawerLeft from './component/appbar'
+//import PersistentDrawerLeft from './component/appbar'
 
 //importing pages for routing
 
 import Task from "./pages/Task";
-import Completion from './pages/completion';
+import CompletedTodo from './pages/completion';
+
 
 
 export default function App() {
@@ -23,11 +24,13 @@ export default function App() {
 
         <Route path = "/completion"
         element={
-          <Completion/>
+          
+          <CompletedTodo/>
         }></Route>
         </Routes>
         
     </div>
     </Router>
+   
   )
 }

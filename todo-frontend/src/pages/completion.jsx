@@ -1,6 +1,7 @@
 import React from 'react'
 import PersistentDrawerLeft from '../component/appbar'
 import { Box } from '@mui/material'
+
 export default function Completion() {
   return (
     <>
@@ -10,13 +11,11 @@ export default function Completion() {
       <Box sx={{display:'flex'}}>
       
       <PersistentDrawerLeft/>
-      This is completion page
       </Box>
     </div>
-    
-    
-    
-    
+      
     </>
   )
-}
+};
+
+
