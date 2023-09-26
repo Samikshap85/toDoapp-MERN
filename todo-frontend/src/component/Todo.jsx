@@ -1,5 +1,8 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import AccessTimeIcon from '@mui/icons-material/AccessTime'; // Import AccessTimeIcon
+import DoneIcon from '@mui/icons-material/Done'; // Import DoneIcon
 import '../App.css'
 import { useState } from 'react';
 import { toggleTodo , updateTodo } from '../redux/action';
@@ -18,7 +21,7 @@ const [text,setText]= useState(todo.data);
 
     return(
         <li className="task"
-        onClick={() => dispatch(toggleTodo(todo._id))}
+       
         style={{
             textDecoration: todo.done ? 'line-through' : '',
             color: todo.done ? 'white' : '#2c3e50'
@@ -34,6 +37,22 @@ const [text,setText]= useState(todo.data);
                 className='edit-todo'
                 onChange={(e) =>setText(e.target.value)}/>
             </form>
+            <div className="icon-container">
+            <span className="icon" onClick={() => dispatch(toggleTodo(todo._id))}>
+        {todo.done ? (
+          <div>
+            <DoneIcon /> Completed: {new Date(todo.completedAt).toLocaleString()}
+          </div>
+        ) : (
+          <div>
+            <AccessTimeIcon /> Created: {new Date(todo.createdAt).toLocaleString()}
+          </div>
+        )}
+      </span>
+            <span className='icon'
+            onClick={() => dispatch(toggleTodo(todo._id))}>
+                <CheckCircleOutlineIcon/>
+            </span>
             <span className='icon'
             onClick={() => setEditing(prevState => !prevState)}>
                 <EditIcon/>
@@ -43,6 +62,7 @@ const [text,setText]= useState(todo.data);
                 <DeleteIcon />
                
             </span>
+            </div>
         </li>
         
     )

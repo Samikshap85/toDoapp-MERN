@@ -14,15 +14,41 @@ export const addNewTodo = (data) => async(dispatch) => {
     }
 }
 
-export const getAllTodos = () => async(dispatch) =>{
-try{
-    const res = await axios.get(`${API_URL}/todo`);
-    dispatch({type:GetAll_TODO , payload: res.data})
- } catch (error) {
-     console.log('Error while calling getAllTodos API' , error.message);
- }
+// export const getAllTodos = () => async(dispatch) =>{
+// try{
+//     const res = await axios.get(`${API_URL}/todo`);
+//     dispatch({type:GetAll_TODO , payload: res.data})
+//  } catch (error) {
+//      console.log('Error while calling getAllTodos API' , error.message);
+//  }
    
-}
+// }
+
+export const getAllTodos = () => async (dispatch) => {
+    try {
+      const res = await axios.get(`${API_URL}/todo`);
+      
+      // Filter the TODO items where 'done' is equal to true
+      const doneTodos = res.data.filter((todo) => todo.done === false);
+      
+      dispatch({ type: GetAll_TODO, payload: doneTodos });
+    } catch (error) {
+      console.log('Error while calling getAllTodos API', error.message);
+    }
+  };
+
+export const getAllCompletedTodos = () => async (dispatch) => {
+    try {
+      const res = await axios.get(`${API_URL}/todo`);
+      
+      // Filter the TODO items where 'done' is equal to true
+      const doneTodos = res.data.filter((todo) => todo.done === true);
+      
+      dispatch({ type: GetAll_TODO, payload: doneTodos });
+    } catch (error) {
+      console.log('Error while calling getAllCompletedTodos API', error.message);
+    }
+  };
 
 export const toggleTodo = (id) => async(dispatch) =>{
     try{
@@ -52,3 +78,4 @@ export const toggleTodo = (id) => async(dispatch) =>{
              }
                
             }
+

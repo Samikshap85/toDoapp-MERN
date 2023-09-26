@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { addNewTodo } from '../redux/action';
+import SendIcon from '@mui/icons-material/Send';
 
 export default function TodoForm() {
     const [text , setText] = useState("");
@@ -21,16 +22,22 @@ export default function TodoForm() {
 
     }
   return (
-   <>
+
    <form className='form' onSubmit= {onFormSubmit}>
+    <div className='input-container'>
     <input
     placeholder='Enter new todo.'
     className='input'
     onChange={onInputChange}
     value={text}
+    
+    
+    
     />
+    <SendIcon onSubmit= {onFormSubmit} />
+    </div>
 
    </form>
-   </>
-  )
+   
+  );
 }

@@ -80,6 +80,7 @@ const AppBar = styled(MuiAppBar, {
       duration: theme.transitions.duration.enteringScreen,
     }),
   }),
+  backgroundColor: '#6B00B1',
 }));
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -144,6 +145,7 @@ const navigation = useNavigate();
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
+            
           },
         }}
         variant="persistent"

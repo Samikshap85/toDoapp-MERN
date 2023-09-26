@@ -4,6 +4,8 @@ import { Box } from '@mui/material'
 import '../component/taskContent.css'
 import TodoForm from '../component/TodoForm'
 import Todos from '../component/Todos'
+import {Paper, Typography} from '@mui/material'
+
 
 
 
@@ -16,13 +18,21 @@ export default function Task() {
       <Box height={70}/>
       <div className="center-container">
       <PersistentDrawerLeft/>
-      <header>
-      <h1>TodoList</h1>
-      <TodoForm />
-      <Todos />
-      </header>
+      <div className='content-container'>
+      <Paper elevation={3} className='heading-paper'
+      >
+              <Typography variant="h4" gutterBottom textAlign={'center'}>
+                Add Your Task Here
+              </Typography>
+              <TodoForm />
+              <Todos />
+            </Paper>
       
       
+     
+      
+      
+      </div>
       </div>
       
       
